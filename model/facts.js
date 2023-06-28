@@ -31,7 +31,10 @@ const factSchema = new Schema({
     type : String
   },
 
-  
+  likes: {
+    type: Number,
+    default: 0
+  },
   
     
   

@@ -31,5 +31,24 @@ export async function deleteFact(req, res) {
   await Fact.findByIdAndRemove(id);
   res.json({ message: "Fact deleted successfully" });
 }
+export async function likeFact(req, res) {
+  const { id } = req.params;
 
+  if (!mongoose.Types.ObjectId.isValid(id))
+    return res.status(404).send("No fact with that id");
+
+  try {
+    const fact = await Fact.findById(id);
+
+    if (!fact) return res.status(404).send("No fact with that id");
+
+    fact.likes = fact.likes + 1;
+    await fact.save();
+
+    return res.status(200).json(fact);
+  } catch (error) {
+    console.error(error);
+    return res.status(500).send("Server Error");
+  }
+}
 export default router;

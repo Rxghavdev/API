@@ -27,6 +27,11 @@ const factSchema = new Schema({
     type: Boolean,
     default: true
   },
+  source:{
+    type: String,
+    required: true
+  },
+  
   report:{
     type : String
   },

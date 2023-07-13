@@ -11,10 +11,10 @@ const factSchema = new Schema({
     type: Date,
     default: Date.now,
   },
-  description: {
-    type: String,
-    required: true,
-  },
+  // description: {
+  //   type: String,
+  //   required: true,
+  // },
   hindi_description: {
     type: String,
     required: true,
